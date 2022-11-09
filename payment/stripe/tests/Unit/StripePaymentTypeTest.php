@@ -70,7 +70,7 @@ class StripePaymentTypeTest extends TestCase
             ],
         ]);
 
-        StripeFacade::createIntent($cart->getManager()->getCart());
+        StripeFacade::createIntent($cart->calculate());
 
         $this->assertEquals(
             $cart->refresh()->meta->payment_intent,
